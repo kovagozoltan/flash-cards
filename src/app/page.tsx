@@ -3,6 +3,8 @@ import cards from "@/data/cards.json";
 import { InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
+export const dynamic = "force-dynamic";
+
 interface Card {
   id: string;
   topic: string;

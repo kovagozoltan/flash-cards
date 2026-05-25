@@ -2,6 +2,7 @@
 
 import { supabase } from '@/lib/supabase';
 import cards from '@/data/cards.json';
+import { revalidatePath } from 'next/cache';
 
 export interface CardProgress {
   interval: number;
@@ -14,13 +15,14 @@ export interface StudyProgress {
 }
 
 export async function getStudyProgress(): Promise<StudyProgress> {
+  if (!supabase) return {};
   try {
     const { data, error } = await supabase.from('study_progress').select('*');
     if (error) throw error;
     
     const progress: StudyProgress = {};
     if (data) {
-      data.forEach((row) => {
+      data.forEach((row: any) => {
         progress[row.card_id] = {
           interval: row.interval,
           ease_factor: row.ease_factor,
@@ -36,6 +38,10 @@ export async function getStudyProgress(): Promise<StudyProgress> {
 }
 
 export async function updateCardProgress(cardId: string, isCorrect: boolean) {
+  if (!supabase) {
+    console.warn('Supabase is not configured.');
+    return;
+  }
   const progress = await getStudyProgress();
   const card = cards.find((c) => c.id === cardId);
 
@@ -76,6 +82,7 @@ export async function updateCardProgress(cardId: string, isCorrect: boolean) {
     
     if (error) throw error;
     console.log(`Updated progress for card ${cardId}`);
+    revalidatePath('/');
   } catch (error) {
     console.error('Error updating study progress:', error);
   }
