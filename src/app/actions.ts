@@ -1,4 +1,6 @@
-import { kv } from '@/lib/kv';
+'use server';
+
+import { supabase } from '@/lib/supabase';
 import cards from '@/data/cards.json';
 
 export interface CardProgress {
@@ -11,12 +13,22 @@ export interface StudyProgress {
   [cardId: string]: CardProgress;
 }
 
-const KV_KEY = 'calculus_study_progress';
-
 export async function getStudyProgress(): Promise<StudyProgress> {
   try {
-    const progress = await kv.get<StudyProgress>(KV_KEY);
-    return progress || {};
+    const { data, error } = await supabase.from('study_progress').select('*');
+    if (error) throw error;
+    
+    const progress: StudyProgress = {};
+    if (data) {
+      data.forEach((row) => {
+        progress[row.card_id] = {
+          interval: row.interval,
+          ease_factor: row.ease_factor,
+          next_review: row.next_review,
+        };
+      });
+    }
+    return progress;
   } catch (error) {
     console.error('Error fetching study progress:', error);
     return {};
@@ -25,7 +37,7 @@ export async function getStudyProgress(): Promise<StudyProgress> {
 
 export async function updateCardProgress(cardId: string, isCorrect: boolean) {
   const progress = await getStudyProgress();
-  const card = cards.find(c => c.id === cardId);
+  const card = cards.find((c) => c.id === cardId);
 
   if (!card) {
     console.error(`Card with ID ${cardId} not found.`);
@@ -35,13 +47,13 @@ export async function updateCardProgress(cardId: string, isCorrect: boolean) {
   let { interval, ease_factor, next_review } = progress[cardId] || {
     interval: 0,
     ease_factor: 2.5,
-    next_review: new Date(0).toISOString(), // Epoch for new cards
+    next_review: new Date(0).toISOString(),
   };
 
   const now = new Date();
 
   if (isCorrect) {
-    if (interval === 0) { // New card or first correct answer
+    if (interval === 0) {
       interval = 1;
     } else {
       interval = Math.ceil(interval * ease_factor);
@@ -54,11 +66,16 @@ export async function updateCardProgress(cardId: string, isCorrect: boolean) {
   const nextReviewDate = new Date(now.setDate(now.getDate() + interval));
   next_review = nextReviewDate.toISOString();
 
-  progress[cardId] = { interval, ease_factor, next_review };
-
   try {
-    await kv.set(KV_KEY, progress);
-    console.log(`Updated progress for card ${cardId}:`, progress[cardId]);
+    const { error } = await supabase.from('study_progress').upsert({
+      card_id: cardId,
+      interval,
+      ease_factor,
+      next_review,
+    });
+    
+    if (error) throw error;
+    console.log(`Updated progress for card ${cardId}`);
   } catch (error) {
     console.error('Error updating study progress:', error);
   }
