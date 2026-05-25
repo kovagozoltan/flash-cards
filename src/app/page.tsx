@@ -5,14 +5,6 @@ import "katex/dist/katex.min.css";
 
 export const dynamic = "force-dynamic";
 
-interface Card {
-  id: string;
-  topic: string;
-  front: string;
-  correct_answer: string;
-  wrong_answers: string[];
-}
-
 function shuffleArray<T>(array: T[]): T[] {
   let currentIndex = array.length,
     randomIndex;

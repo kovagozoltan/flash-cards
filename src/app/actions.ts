@@ -22,6 +22,7 @@ export async function getStudyProgress(): Promise<StudyProgress> {
     
     const progress: StudyProgress = {};
     if (data) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       data.forEach((row: any) => {
         progress[row.card_id] = {
           interval: row.interval,
