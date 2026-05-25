@@ -1,0 +1,15 @@
+[
+  {
+    "id": "calc_01",
+    "topic": "derivatives",
+    "front": "Find the derivative of \\( f(x) = \\sin(2x) \\).",
+    "correct_answer": "\\( 2\\cos(2x) \\)",
+    "wrong_answers": [
+      "\\( \\cos(2x) \\)", 
+      "\\( -2\\cos(2x) \\)", 
+      "\\( 2\\sin(2x) \\)",
+      "\\( -\\sin(2x) \\)",
+      "\\( 4\\cos(2x) \\)"
+    ]
+  }
+]
