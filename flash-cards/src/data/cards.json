@@ -1,15 +1,201 @@
 [
   {
     "id": "calc_01",
-    "topic": "derivatives",
-    "front": "Find the derivative of \\( f(x) = \\sin(2x) \\).",
-    "correct_answer": "\\( 2\\cos(2x) \\)",
+    "topic": "algebra",
+    "front": "Expand the binomial square: \\( (a+b)^2 \\)",
+    "correct_answer": "\\( a^2 + 2ab + b^2 \\)",
     "wrong_answers": [
-      "\\( \\cos(2x) \\)", 
-      "\\( -2\\cos(2x) \\)", 
-      "\\( 2\\sin(2x) \\)",
-      "\\( -\\sin(2x) \\)",
-      "\\( 4\\cos(2x) \\)"
+      "\\( a^2 + b^2 \\)",
+      "\\( a^2 - 2ab + b^2 \\)",
+      "\\( a^2 + ab + b^2 \\)",
+      "\\( 2a + 2b \\)",
+      "\\( a^2 + 4ab + b^2 \\)",
+      "\\( (a+b)(a-b) \\)"
+    ]
+  },
+  {
+    "id": "calc_02",
+    "topic": "exponents",
+    "front": "Simplify the quotient of powers: \\( \\frac{x^a}{x^b} \\)",
+    "correct_answer": "\\( x^{a-b} \\)",
+    "wrong_answers": [
+      "\\( x^{a+b} \\)",
+      "\\( x^{\\frac{a}{b}} \\)",
+      "\\( x^{b-a} \\)",
+      "\\( x^{ab} \\)",
+      "\\( \\frac{1}{x^{a+b}} \\)",
+      "\\( a - b \\)"
+    ]
+  },
+  {
+    "id": "calc_03",
+    "topic": "algebra",
+    "front": "How do you factor the Sum of Two Cubes? \\( a^3 + b^3 \\)",
+    "correct_answer": "\\( (a+b)(a^2 - ab + b^2) \\)",
+    "wrong_answers": [
+      "\\( (a+b)(a^2 + ab + b^2) \\)",
+      "\\( (a-b)(a^2 + ab + b^2) \\)",
+      "\\( (a+b)^3 \\)",
+      "\\( (a+b)(a^2 - 2ab + b^2) \\)",
+      "\\( (a-b)(a^2 - ab + b^2) \\)"
+    ]
+  },
+  {
+    "id": "calc_04",
+    "topic": "algebra",
+    "front": "What is the formula for the Difference Quotient of \\( f(x) \\)?",
+    "correct_answer": "\\( \\frac{f(x + h) - f(x)}{h} \\)",
+    "wrong_answers": [
+      "\\( \\frac{f(x + h) + f(x)}{h} \\)",
+      "\\( \\frac{f(x) - f(x + h)}{h} \\)",
+      "\\( \\frac{f(x + h) - f(x)}{x} \\)",
+      "\\( f(x + h) - f(x) \\)",
+      "\\( \\frac{f(x + h) - f(h)}{x} \\)"
+    ]
+  },
+  {
+    "id": "calc_05",
+    "topic": "derivatives",
+    "front": "What is the Quotient Rule for \\( \\frac{d}{dx} \\left[ \\frac{f(x)}{g(x)} \\right] \\)?",
+    "correct_answer": "\\( \\frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2} \\)",
+    "wrong_answers": [
+      "\\( \\frac{f'(x)g'(x)}{g(x)^2} \\)",
+      "\\( \\frac{f(x)g'(x) - f'(x)g(x)}{g(x)^2} \\)",
+      "\\( \\frac{f'(x)g(x) + f(x)g'(x)}{g(x)^2} \\)",
+      "\\( \\frac{f'(x)}{g'(x)} \\)",
+      "\\( f'(x)g(x) - f(x)g'(x) \\)",
+      "\\( \\frac{f'(x)g(x) - f(x)g'(x)}{g(x)} \\)"
+    ]
+  },
+  {
+    "id": "calc_06",
+    "topic": "derivatives",
+    "front": "What is the Power Rule for \\( \\frac{d}{dx} (ax^n) \\)?",
+    "correct_answer": "\\( a \\cdot n x^{n-1} \\)",
+    "wrong_answers": [
+      "\\( a \\cdot n x^{n+1} \\)",
+      "\\( a x^{n-1} \\)",
+      "\\( n x^n \\)",
+      "\\( a \\cdot n x^n \\)",
+      "\\( \\frac{a}{n+1} x^{n+1} \\)"
+    ]
+  },
+  {
+    "id": "calc_07",
+    "topic": "derivatives",
+    "front": "What is the Product Rule for \\( \\frac{d}{dx} (f(x) \\cdot g(x)) \\)?",
+    "correct_answer": "\\( f'(x)g(x) + f(x)g'(x) \\)",
+    "wrong_answers": [
+      "\\( f'(x)g'(x) \\)",
+      "\\( f'(x)g(x) - f(x)g'(x) \\)",
+      "\\( f(x)g(x) + f'(x)g'(x) \\)",
+      "\\( f'(x) + g'(x) \\)",
+      "\\( f'(x)g'(x) + f(x)g(x) \\)"
+    ]
+  },
+  {
+    "id": "calc_08",
+    "topic": "derivatives",
+    "front": "What is the Product Rule for three functions: \\( \\frac{d}{dx} (fgh) \\)?",
+    "correct_answer": "\\( f'gh + fg'h + fgh' \\)",
+    "wrong_answers": [
+      "\\( f'g'h' \\)",
+      "\\( f'g'h + fg'h' + f'gh' \\)",
+      "\\( fgh + f'g'h' \\)",
+      "\\( f'gh - fg'h + fgh' \\)",
+      "\\( (f' + g' + h')(fgh) \\)"
+    ]
+  },
+  {
+    "id": "calc_09",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\sin x) \\)",
+    "correct_answer": "\\( \\cos x \\)",
+    "wrong_answers": [
+      "\\( -\\cos x \\)",
+      "\\( -\\sin x \\)",
+      "\\( \\sec^2 x \\)",
+      "\\( \\csc x \\)",
+      "\\( \\tan x \\)"
+    ]
+  },
+  {
+    "id": "calc_10",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\cos x) \\)",
+    "correct_answer": "\\( -\\sin x \\)",
+    "wrong_answers": [
+      "\\( \\sin x \\)",
+      "\\( -\\cos x \\)",
+      "\\( -\\csc^2 x \\)",
+      "\\( \\sec x \\tan x \\)",
+      "\\( \\cos^2 x \\)"
+    ]
+  },
+  {
+    "id": "calc_11",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\tan x) \\)",
+    "correct_answer": "\\( \\sec^2 x \\)",
+    "wrong_answers": [
+      "\\( \\sec x \\tan x \\)",
+      "\\( -\\csc^2 x \\)",
+      "\\( \\cot x \\)",
+      "\\( \\frac{1}{\\cos x} \\)",
+      "\\( -\\sec^2 x \\)"
+    ]
+  },
+  {
+    "id": "calc_12",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\csc x) \\)",
+    "correct_answer": "\\( -\\csc x \\cot x \\)",
+    "wrong_answers": [
+      "\\( \\csc x \\cot x \\)",
+      "\\( -\\csc^2 x \\)",
+      "\\( \\sec x \\tan x \\)",
+      "\\( -\\cot x \\)",
+      "\\( \\csc^2 x \\)"
+    ]
+  },
+  {
+    "id": "calc_13",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\sec x) \\)",
+    "correct_answer": "\\( \\sec x \\tan x \\)",
+    "wrong_answers": [
+      "\\( -\\sec x \\tan x \\)",
+      "\\( \\sec^2 x \\)",
+      "\\( -\\csc x \\cot x \\)",
+      "\\( \\tan^2 x \\)",
+      "\\( \\sec x \\)"
+    ]
+  },
+  {
+    "id": "calc_14",
+    "topic": "derivatives",
+    "front": "Evaluate the derivative: \\( \\frac{d}{dx} (\\cot x) \\)",
+    "correct_answer": "\\( -\\csc^2 x \\)",
+    "wrong_answers": [
+      "\\( \\csc^2 x \\)",
+      "\\( -\\sec^2 x \\)",
+      "\\( -\\csc x \\cot x \\)",
+      "\\( \\tan^2 x \\)",
+      "\\( -\\cot^2 x \\)"
+    ]
+  },
+  {
+    "id": "calc_15",
+    "topic": "derivatives",
+    "front": "Evaluate the exponential derivative: \\( \\frac{d}{dx} (a^x) \\)",
+    "correct_answer": "\\( a^x \\ln(a) \\)",
+    "wrong_answers": [
+      "\\( x a^{x-1} \\)",
+      "\\( \\frac{a^x}{\\ln(a)} \\)",
+      "\\( a^x \\)",
+      "\\( a^x \\log_a(x) \\)",
+      "\\( e^x \\ln(a) \\)",
+      "\\( x \\ln(a) \\)"
     ]
   }
 ]
